@@ -1,3 +1,3 @@
-import test from './modules/test';
+import phoneList from './modules/phoneList';
 
-test();
+phoneList();
