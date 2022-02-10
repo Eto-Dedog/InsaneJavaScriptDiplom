@@ -16,7 +16,7 @@ const phoneList = () => {
         phone.style.marginTop = "0px"
         arrow.style.transform = "rotate(0deg)"
         arrow.style.transition = "all 0.5s"
-    } 
+    }
   });
 }
 export default phoneList
