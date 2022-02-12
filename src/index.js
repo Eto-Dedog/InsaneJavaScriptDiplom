@@ -3,9 +3,11 @@ import headerMenu from './modules/headerMenu'
 import scroll from './modules/scroll'
 import openAllServices from './modules/openAllServices'
 import phoneMask from './modules/phoneMask'
+import openPrivacy from './modules/openPrivacy'
 
 phoneList()
 headerMenu()
 scroll()
 openAllServices()
 phoneMask()
+openPrivacy()
