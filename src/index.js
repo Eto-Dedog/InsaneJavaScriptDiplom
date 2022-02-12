@@ -5,6 +5,7 @@ import openAllServices from './modules/openAllServices'
 import phoneMask from './modules/phoneMask'
 import openPrivacy from './modules/openPrivacy'
 import openСonsultation from './modules/openСonsultation'
+import accordeon from './modules/accordeon'
 
 phoneList()
 headerMenu()
@@ -13,3 +14,4 @@ openAllServices()
 phoneMask()
 openPrivacy()
 openСonsultation()
+accordeon()
