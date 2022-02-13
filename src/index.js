@@ -6,6 +6,7 @@ import phoneMask from './modules/phoneMask'
 import openPrivacy from './modules/openPrivacy'
 import openСonsultation from './modules/openСonsultation'
 import accordeon from './modules/accordeon'
+import formula from './modules/formula'
 
 phoneList()
 headerMenu()
@@ -15,3 +16,4 @@ phoneMask()
 openPrivacy()
 openСonsultation()
 accordeon()
+formula()
