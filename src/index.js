@@ -7,6 +7,7 @@ import openPrivacy from './modules/openPrivacy'
 import openСonsultation from './modules/openСonsultation'
 import accordeon from './modules/accordeon'
 import formulaSlider from './modules/formulaSlider'
+import repairSlider from './modules/repairSlider'
 
 phoneList()
 headerMenu()
@@ -17,3 +18,4 @@ openPrivacy()
 openСonsultation()
 accordeon()
 formulaSlider()
+repairSlider()
