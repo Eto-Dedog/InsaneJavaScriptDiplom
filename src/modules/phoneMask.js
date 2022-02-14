@@ -35,13 +35,12 @@ const phoneMask = () => {
 		elem.addEventListener("focus", mask);
 		elem.addEventListener("blur", mask);
 	};
-
 	for (let item of inputPhone) {
 		if (item.name === 'phone') {
 			testPhoneMask('#' + item.id);
 		}
 	}
-  
+	console.log();
 };
 
 export default phoneMask;
