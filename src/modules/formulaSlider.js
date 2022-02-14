@@ -1,6 +1,7 @@
 import CarouselSlider from './carouselSlider';
 
 const formulaSlider = () => {
+  const formula = document.getElementById('formula'),
   formulaItemIcon = document.querySelectorAll('.formula-item__icon'),
   styleOne = document.createElement(`style`);
 
