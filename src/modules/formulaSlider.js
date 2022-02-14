@@ -1,63 +1,40 @@
 import CarouselSlider from './carouselSlider';
 
 const formulaSlider = () => {
-// -
-  let itemPopOne = document.querySelectorAll('.formula-item__icon-inner-text')[0]
-  let itemPopTwo = document.querySelectorAll('.formula-item__icon-inner-text')[1]
-  let itemPopThree = document.querySelectorAll('.formula-item__icon-inner-text')[2]
-  let itemPopFour = document.querySelectorAll('.formula-item__icon-inner-text')[3]
-  let itemPopFive = document.querySelectorAll('.formula-item__icon-inner-text')[4]
-  let itemPopSix = document.querySelectorAll('.formula-item__icon-inner-text')[5]
+  formulaItemIcon = document.querySelectorAll('.formula-item__icon'),
+  styleOne = document.createElement(`style`);
 
-  let popupTextOne = document.querySelectorAll('.formula-item-popup')[0]
-  let popupTextTwo = document.querySelectorAll('.formula-item-popup')[1]
-  let popupTextThree = document.querySelectorAll('.formula-item-popup')[2]
-  let popupTextFour = document.querySelectorAll('.formula-item-popup')[3]
-  let popupTextFive = document.querySelectorAll('.formula-item-popup')[4]
-  let popupTextSix = document.querySelectorAll('.formula-item-popup')[5]
+  styleOne.textContent = `.formula-item-popup::before {
+      transform: rotate(180deg);
+    }
+  `;
+  
+  formulaItemIcon.forEach( (item) => {
+    item.addEventListener('mouseover', () => {
+      item.children[1].style.opacity = 1;
+      if ((item.children[0].clientHeight > item.getBoundingClientRect().top)) {
+          item.children[0].style.transform = 'translateY(180%)';
+          item.parentNode.style.zIndex = 1;
+          document.head.appendChild(styleOne);
+      } else if ((item.children[0].clientHeight < item.getBoundingClientRect().top)) {
+          item.parentNode.style.zIndex = 1;
+          item.children[0].style.transform = '';
+      }
+      item.children[0].style.visibility = 'visible';
+      item.children[0].style.opacity = 12121;
+    });
+    item.addEventListener('mouseout', () => {
+      item.children[1].style.opacity = 0;
+      item.children[0].style.opacity = 0;
+      item.children[0].style.visibility = '';
+      item.parentNode.style.zIndex = 0;
+      if ( styleOne.parentNode === document.head ) {
+        styleOne.parentNode.removeChild(styleOne);
+      }
+    }); 
+  });
 
-  itemPopOne.addEventListener("mouseover",function() {
-    popupTextOne.style.visibility='visible'
-  })
-  itemPopOne.addEventListener("mouseout",function() {
-    popupTextOne.style.visibility='hidden'
-  })
 
-  itemPopTwo.addEventListener("mouseover",function() {
-    popupTextTwo.style.visibility='visible'
-  })
-  itemPopTwo.addEventListener("mouseout",function() {
-    popupTextTwo.style.visibility='hidden'
-  })
-
-  itemPopThree.addEventListener("mouseover",function() {
-    popupTextThree.style.visibility='visible'
-  })
-  itemPopThree.addEventListener("mouseout",function() {
-    popupTextThree.style.visibility='hidden'
-  })
-
-  itemPopFour.addEventListener("mouseover",function() {
-    popupTextFour.style.visibility='visible'
-  })
-  itemPopFour.addEventListener("mouseout",function() {
-    popupTextFour.style.visibility='hidden'
-  })
-
-  itemPopFive.addEventListener("mouseover",function() {
-    popupTextFive.style.visibility='visible'
-  })
-  itemPopFive.addEventListener("mouseout",function() {
-    popupTextFive.style.visibility='hidden'
-  })
-
-  itemPopSix.addEventListener("mouseover",function() {
-    popupTextSix.style.visibility='visible'
-  })
-  itemPopSix.addEventListener("mouseout",function() {
-    popupTextSix.style.visibility='hidden'
-  })
-// -
   const slider = new CarouselSlider({
     main: '.formula-slider-wrap',
     wrap: '.formula-slider',
