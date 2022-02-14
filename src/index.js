@@ -8,6 +8,7 @@ import openСonsultation from './modules/openСonsultation'
 import accordeon from './modules/accordeon'
 import formulaSlider from './modules/formulaSlider'
 import repairSlider from './modules/repairSlider'
+import portfolioSlider from './modules/portfolioSlider'
 
 phoneList()
 headerMenu()
@@ -19,3 +20,4 @@ openСonsultation()
 accordeon()
 formulaSlider()
 repairSlider()
+portfolioSlider()
