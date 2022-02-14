@@ -1325,7 +1325,7 @@ template, [hidden] {
     text-align: left;
     -webkit-transform: translate3d(0, -5px, 0);
     transform: translate3d(0, -5px, 0);
-    opacity: 0.1;
+    /* opacity: 0.1; */
 }
 
 .formula-item-popup p {
