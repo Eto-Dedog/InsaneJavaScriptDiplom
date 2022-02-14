@@ -9,6 +9,7 @@ import accordeon from './modules/accordeon'
 import formulaSlider from './modules/formulaSlider'
 import repairSlider from './modules/repairSlider'
 import portfolioSlider from './modules/portfolioSlider'
+import functionPortfolioSlider from './modules/functionPortfolioSlider'
 
 phoneList()
 headerMenu()
@@ -21,3 +22,4 @@ accordeon()
 formulaSlider()
 repairSlider()
 portfolioSlider()
+functionPortfolioSlider()
