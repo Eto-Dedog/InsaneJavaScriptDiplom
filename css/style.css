@@ -7029,6 +7029,7 @@ div.wave-block:nth-child(17):after {
     .slider-arrow-tablet-mobile {
         width: 12px;
         height: 17px;
+        z-index: 1000;
     }
 
     .slider-arrow-tablet-mobile svg {
