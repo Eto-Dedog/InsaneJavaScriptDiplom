@@ -43,6 +43,9 @@ const functionPortfolioSlider = () => {
       } else {
         slides[i].classList.remove('active');
         this.information[i].style.display = 'none';
+        this.information[i].style.flexWrap = "wrap";
+        this.information[i].style.justifyContent = "space-between";
+        this.information[i].style.alignItems = "center";
       }
     }
   };
