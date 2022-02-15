@@ -10,6 +10,8 @@ import formulaSlider from './modules/formulaSlider'
 import repairSlider from './modules/repairSlider'
 import portfolioSlider from './modules/portfolioSlider'
 import functionPortfolioSlider from './modules/functionPortfolioSlider'
+import transparencySlider from './modules/transparencySlider'
+import functionTransparency from './modules/functionTransparency'
 
 phoneList()
 headerMenu()
@@ -23,3 +25,5 @@ formulaSlider()
 repairSlider()
 portfolioSlider()
 functionPortfolioSlider()
+transparencySlider()
+functionTransparency()
