@@ -1,8 +1,7 @@
 const openPrivacy = () => {
   let privacyBtns = document.querySelectorAll('.link-privacy')
   let privacyBody = document.querySelector('.popup-privacy')
-  let privacyBtnClose = document.querySelector('.popup-privacy > .close')
-
+  let privacyBtnsClose = document.querySelectorAll('.close')
   
   for (let privacyBtn of privacyBtns) {
     privacyBtn.addEventListener("click", () => {
@@ -11,6 +10,7 @@ const openPrivacy = () => {
       }
     }
     )}
+    for (let privacyBtnClose of privacyBtnsClose)
     privacyBtnClose.addEventListener("click", () => {
       if (privacyBody.style.visibility = "visible") {
         privacyBody.style.visibility = "hidden"
