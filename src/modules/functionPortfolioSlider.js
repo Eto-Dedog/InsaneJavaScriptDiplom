@@ -25,6 +25,9 @@ const functionPortfolioSlider = () => {
       if (index === i) {
         slides[i].classList.add('active');
         this.information[i].style.display = 'flex';
+        this.information[i].style.flexWrap = "wrap";
+        this.information[i].style.justifyContent = "space-between";
+        this.information[i].style.alignItems = "center";
         current.textContent = index + 1;
 
         if (move) {
