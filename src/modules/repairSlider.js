@@ -74,9 +74,24 @@ const repairSlider = () => {
     document.head.append(style);
   };
 
+  let item1 = document.getElementsByClassName('repair-types-nav__item')[0]
+  let item2 = document.getElementsByClassName('repair-types-nav__item')[1]
+  let item3 = document.getElementsByClassName('repair-types-nav__item')[2]
+  let item4 = document.getElementsByClassName('repair-types-nav__item')[3]
+  let item5 = document.getElementsByClassName('repair-types-nav__item')[4]
+
   buttonSlider.prevSlider = function() {
     if (this.options.position > 0) {
       --this.options.position;
+      if (item5.classList.contains('active')) {
+        item4.click()
+      } else if (item4.classList.contains('active')) {
+        item3.click()
+      } else if (item3.classList.contains('active')) {
+        item2.click()
+      } else if (item2.classList.contains('active')) {
+        item1.click()
+      }
       if (this.options.position === Math.round(this.options.maxPosition + 1)) {
         this.buff = this.slidesToShow * 10 + (this.slidesToShow >= 2.5 ? -10 : 10);
         this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide - this.buff}%)`;
@@ -87,14 +102,23 @@ const repairSlider = () => {
   };
 
   buttonSlider.nextSlider = function() {
-    if (this.options.position < Math.round(this.options.maxPosition)) {
+    if (this.options.position < 4) {
       ++this.options.position;
+      if (item1.classList.contains('active')) {
+        item2.click()
+      } else if (item2.classList.contains('active')) {
+        item3.click()
+      } else if (item3.classList.contains('active')) {
+        item4.click()
+      } else if (item4.classList.contains('active')) {
+        item5.click()
+      }
       this.buff = this.slidesToShow * 10 + (this.slidesToShow >= 2.5 ? -2 : 10);
       if (this.options.position === Math.round(this.options.maxPosition)) {
         this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide + this.buff}%)`;
       } else	this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
       this.prev.style.visibility = '';
-      if (this.options.position === Math.round(this.options.maxPosition)) this.next.style.visibility = 'hidden';
+      if (this.options.position === 4) this.next.style.visibility = 'hidden';
     }
   };
 
