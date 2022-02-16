@@ -27,7 +27,6 @@ const repairSlider = () => {
     }
     ]
   });
-
   buttonSlider.addStyle = function() {
     let style = document.getElementById(this.stylesId);
     const styleClasses = this.options.styleClasses;
@@ -78,14 +77,12 @@ const repairSlider = () => {
   buttonSlider.prevSlider = function() {
     if (this.options.position > 0) {
       --this.options.position;
-
       if (this.options.position === Math.round(this.options.maxPosition + 1)) {
         this.buff = this.slidesToShow * 10 + (this.slidesToShow >= 2.5 ? -10 : 10);
         this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide - this.buff}%)`;
       } else  this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
       this.next.style.visibility = '';
-      if (this.options.position === 0) this.prev.style.visibility = 'hidden';
-
+      if (this.options.position === 0) this.prev.style.visibility = 'hidden'
     }
   };
 
