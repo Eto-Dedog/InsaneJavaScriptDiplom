@@ -13,6 +13,7 @@ import functionPortfolioSlider from './modules/functionPortfolioSlider'
 import transparencySlider from './modules/transparencySlider'
 import functionTransparency from './modules/functionTransparency'
 import reviewsSlider from './modules/reviewsSlider'
+import sendForm from './modules/sendForm'
 
 phoneList()
 headerMenu()
@@ -29,3 +30,4 @@ functionPortfolioSlider()
 transparencySlider()
 functionTransparency()
 reviewsSlider()
+sendForm()
