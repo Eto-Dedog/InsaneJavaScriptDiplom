@@ -21,25 +21,21 @@ export default class SliderCarousel {
       styleClasses
     };
   }
-
   init() {
-    this.addCrackClass();
+    this.addClass();
     this.addStyle();
     if (!this.prev && !this.next && this.buttons) this.addArrow();
     if (this.buttons) {
       this.controlSlider();
       this.prev.style.visibility = 'hidden';
     }
-
     if (this.responsive.length) this.responseInit();
   }
-
   responseInit() {
     const slidesToShowDefault = this.slidesToShow;
     this.responsive.sort((a, b) => b.breakpoint - a.breakpoint);
     const allResponse = this.responsive.map(item => item.breakpoint);
     const maxResponse = Math.max(...allResponse);
-
     const checkResponse = () => {
       const widthWindow = document.documentElement.clientWidth;
       if (widthWindow < maxResponse) {
@@ -58,19 +54,15 @@ export default class SliderCarousel {
         this.addStyle();
       }
     };
-
     checkResponse();
-
     window.addEventListener('resize', checkResponse);
   }
-
-  addCrackClass() {
+  addClass() {
     const styleClasses = this.options.styleClasses;
     this.main.classList.add(styleClasses.main);
     this.wrap.classList.add(styleClasses.wrap);
     this.slides.forEach(slide => slide.classList.add(styleClasses.item));
   }
-
   addStyle() {
     let style = document.getElementById(this.stylesId);
     const styleClasses = this.options.styleClasses;
@@ -78,7 +70,6 @@ export default class SliderCarousel {
       style = document.createElement('style');
       style.id = this.stylesId;
     }
-
     if (this.noAdaptiveStyles) {
       style.textContent = this.noAdaptiveStyles;
     } else {
@@ -86,12 +77,10 @@ export default class SliderCarousel {
 			.${styleClasses.main} {
 				overflow: hidden !important;
 			}
-		
 			.${styleClasses.wrap} {
 				display: flex !important;
 				transition: transform 0.5s !important;
 			}
-		
 			.${styleClasses.item} {
 				display: flex !important;
 				align-items: center !important;
@@ -99,14 +88,11 @@ export default class SliderCarousel {
 				margin: 0 auto !important;
 				flex: 0 0 ${this.options.widthSlide}% !important;
 			}
-			
 			${this.styles ? this.styles : ''}
 			`;
     }
-
     document.head.append(style);
   }
-
   controlSlider() {
     if (!this.added) {
       this.added = true;
@@ -114,11 +100,9 @@ export default class SliderCarousel {
       this.next.addEventListener('click', this.nextSlider.bind(this));
     }
   }
-
   prevSlider() {
     const infinityType = this.options.infinity;
     if (infinityType) {
-
       if (infinityType === 'return') {
         if (this.options.position > 0) {
           --this.options.position;
@@ -129,23 +113,18 @@ export default class SliderCarousel {
         }
         return;
       }
-
       return;
     }
-
     if (this.options.position > 0) {
       --this.options.position;
       this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
       this.next.style.visibility = '';
       if (this.options.position === 0) this.prev.style.visibility = 'hidden';
-
     }
   }
-
   nextSlider() {
     const infinityType = this.options.infinity;
     if (infinityType) {
-
       if (infinityType === 'return') {
         if (this.options.position < this.options.maxPosition) {
           ++this.options.position;
@@ -156,10 +135,8 @@ export default class SliderCarousel {
         }
         return;
       }
-
       return;
     }
-
     if (this.options.position < this.options.maxPosition) {
       ++this.options.position;
       this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
@@ -167,16 +144,12 @@ export default class SliderCarousel {
       if (this.options.position === this.options.maxPosition) this.next.style.visibility = 'hidden';
     }
   }
-
   addArrow() {
     const styleClasses = this.options.styleClasses;
-
     this.prev = document.createElement('button');
     this.next = document.createElement('button');
-
     this.next.className = styleClasses.prev;
     this.prev.className = styleClasses.next;
-
     const style = document.createElement('style');
     style.textContent = `
         .${styleClasses.prev},
@@ -185,15 +158,12 @@ export default class SliderCarousel {
           border: 20px solid transparent !important; 
           background: transparent !important;
         }
-  
         .${styleClasses.prev} {
           border-right-color: #19bbfe !important;
         }
-        
         .${styleClasses.next} {
           border-left-color: #19bbfe !important;
         }
-  
         .${styleClasses.prev}:hover,
         .${styleClasses.next}:hover,
         .${styleClasses.prev}:focus,
@@ -201,9 +171,7 @@ export default class SliderCarousel {
           background: transparent !important;
           outline: transparent !important;
         }
-  
       `;
-
     this.main.append(this.prev);
     this.main.append(this.next);
     document.head.append(style);

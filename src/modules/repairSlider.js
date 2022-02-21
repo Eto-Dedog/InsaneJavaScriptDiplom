@@ -1,10 +1,8 @@
 import CarouselSlider from './carouselSlider';
-
 const repairSlider = () => {
   const tabHeader = document.querySelector('.nav-list.nav-list-repair'),
     tabs = document.querySelectorAll('.repair-types-nav__item'),
     tabsContent = [...document.querySelector('.repair-types-slider').children];
-
   const buttonSlider = new CarouselSlider({
     main: '.nav.repair-types-nav',
     wrap: '.nav-list.nav-list-repair',
@@ -30,24 +28,20 @@ const repairSlider = () => {
   buttonSlider.addStyle = function() {
     let style = document.getElementById(this.stylesId);
     const styleClasses = this.options.styleClasses;
-
     if (!style) {
       style = document.createElement('style');
       style.id = this.stylesId;
     }
-
     style.textContent = `
 			@media (max-width: 1024px) {
 				.${styleClasses.main} {
 					overflow: hidden !important;
 				}
-			
 				.${styleClasses.wrap} {
 					display: flex !important;
 					transition: transform 0.5s !important;
 					flex-wrap: nowrap;
 				}
-			
 				.${styleClasses.item} {
 					display: flex !important;
 					align-items: center !important;
@@ -63,23 +57,19 @@ const repairSlider = () => {
 					min-width: 100%;
 				}
 			}
-		
 			@media (min-width: 1024px) {
 				.${styleClasses.wrap} {
 					transform: translateX(-0%) !important;
 				}
 			}
 		`;
-
     document.head.append(style);
   };
-
   let item1 = document.getElementsByClassName('repair-types-nav__item')[0]
   let item2 = document.getElementsByClassName('repair-types-nav__item')[1]
   let item3 = document.getElementsByClassName('repair-types-nav__item')[2]
   let item4 = document.getElementsByClassName('repair-types-nav__item')[3]
   let item5 = document.getElementsByClassName('repair-types-nav__item')[4]
-
   buttonSlider.prevSlider = function() {
     if (this.options.position > 0) {
       --this.options.position;
@@ -100,7 +90,6 @@ const repairSlider = () => {
       if (this.options.position === 0) this.prev.style.visibility = 'hidden'
     }
   };
-
   buttonSlider.nextSlider = function() {
     if (this.options.position < 4) {
       ++this.options.position;
@@ -121,14 +110,10 @@ const repairSlider = () => {
       if (this.options.position === 4) this.next.style.visibility = 'hidden';
     }
   };
-
   buttonSlider.init();
-
   const slideders = [...document.querySelector('.repair-types-slider').children];
-
   const total = document.querySelector('#repair-counter .slider-counter-content__total');
   const current = document.querySelector('#repair-counter .slider-counter-content__current');
-
   const slider = new CarouselSlider({
     main: '.repair-types-slider',
     wrap: `.types-repair1`,
@@ -142,9 +127,7 @@ const repairSlider = () => {
       item: `js-types-repair1__item-slider`,
     }
   });
-
   total.textContent = slider.slides.length;
-
   slider.update = function({ wrap, stylesId, wrapClass, itemClass }) {
     const oldStyles = document.getElementById(this.stylesId);
     oldStyles.remove();
@@ -152,7 +135,6 @@ const repairSlider = () => {
     this.wrap.style.transform = '';
     this.wrap.classList.remove(classNames.wrap);
     this.slides.forEach(slide => slide.classList.remove(classNames.item));
-
     this.wrap = document.querySelector(wrap),
     this.stylesId = stylesId,
     this.slides = [...this.wrap.children];
@@ -160,20 +142,14 @@ const repairSlider = () => {
     this.options.styleClasses.item = itemClass;
     this.options.maxPosition = this.slides.length - this.slidesToShow;
     this.options.position = 0;
-
     this.init();
-
     total.textContent = this.slides.length;
-
     if (this.options.position === this.options.maxPosition) this.next.style.visibility = 'hidden';
     else this.next.style.visibility = 'visible';
-
     if (this.options.position === 0) this.prev.style.visibility = 'hidden';
     else this.prev.style.visibility = 'visible';
-
     current.textContent = this.options.position + 1;
   };
-
   slider.prevSlider = function() {
     if (this.options.position > 0) {
       --this.options.position;
@@ -183,7 +159,6 @@ const repairSlider = () => {
       current.textContent = this.options.position + 1;
     }
   };
-
   slider.nextSlider = function() {
     if (this.options.position < this.options.maxPosition) {
       ++this.options.position;
@@ -193,9 +168,7 @@ const repairSlider = () => {
       current.textContent = this.options.position + 1;
     }
   };
-
   slider.init();
-  
   function toggleTabContent(index) {
     if (tabsContent[index].classList.length > 1) return;
     for (let i = 0; i < tabsContent.length; i++) {
@@ -231,5 +204,4 @@ const repairSlider = () => {
     }
   });
 };
-
 export default repairSlider;

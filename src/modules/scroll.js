@@ -4,7 +4,6 @@ const scroll = () => {
       smoothLink.addEventListener('click', function (e) {
           e.preventDefault();
           const id = smoothLink.getAttribute('href');
-  
           document.querySelector(id).scrollIntoView({
               behavior: 'smooth',
               block: 'start'

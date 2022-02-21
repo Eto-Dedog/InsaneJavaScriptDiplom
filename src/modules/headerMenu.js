@@ -3,7 +3,6 @@ const headerMenu = () => {
     let menuBody = document.querySelector('.popup-dialog-menu')
     let menuBtnsOpen = document.querySelectorAll('.menu__icon')
     let menuBtnClsoe = document.querySelector('.close-menu')
-
     if (window.matchMedia("(min-width: 576px)").matches) {
         for (let menuBtnOpen of menuBtnsOpen) {
             menuBtnOpen.addEventListener("click", () => {

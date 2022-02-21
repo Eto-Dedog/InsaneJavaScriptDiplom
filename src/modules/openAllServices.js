@@ -7,7 +7,6 @@ const openAllServices = () => {
   let modalServicesBtnsCloseAdapt = document.querySelectorAll('.tablet-hide > .close')
   let modalServicesBtnsOpenAdapt = document.querySelectorAll('.link-list-repair > a')
   modalServices.style.visibility = "hidden"
-
     for (let modalServicesBtnOpen of modalServicesBtnsOpen) {
     modalServicesBtnOpen.addEventListener("click", () => {
       if (modalServices.style.visibility = "hidden") {
@@ -17,7 +16,6 @@ const openAllServices = () => {
       }
     }
     )}
-
     for (let modalServicesBtnOpenAdapt of modalServicesBtnsOpenAdapt) {
       modalServicesBtnOpenAdapt.addEventListener("click", () => {
         if (modalServices.style.visibility = "hidden") {
@@ -27,7 +25,6 @@ const openAllServices = () => {
         }
       }
       )}
-
     for (let modalServicesBtnClose of modalServicesBtnsClose) {
     modalServicesBtnClose.addEventListener("click", () => {
       if (modalServices.style.visibility = "visible") {
@@ -35,7 +32,6 @@ const openAllServices = () => {
       }
     }
     )}
-
     for (let modalServicesBtnCloseAdapt of modalServicesBtnsCloseAdapt) {
       modalServicesBtnCloseAdapt.addEventListener("click", () => {
         if (modalServices.style.visibility = "visible") {

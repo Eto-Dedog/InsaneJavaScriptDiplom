@@ -1,5 +1,4 @@
 import CarouselSlider from './carouselSlider';
-
 const reviewsSlider = () => {
   new CarouselSlider({
     main: '.reviews-slider',
@@ -15,6 +14,4 @@ const reviewsSlider = () => {
     }
   }).init();
 };
-
-
 export default reviewsSlider;

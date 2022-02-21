@@ -1,10 +1,7 @@
 import CarouselSlider from './carouselSlider';
-
-
 const transparencySlider = () => {
   const current = document.querySelector('#transparency-popup-counter .slider-counter-content__current');
   const total = document.querySelector('#transparency-popup-counter .slider-counter-content__total');
-
   const sliderDoc = new CarouselSlider({
     main: '.transparency-slider-wrap',
     wrap: '.transparency-slider',
@@ -19,23 +16,19 @@ const transparencySlider = () => {
     },
     noAdaptiveStyles: `
 			@media (max-width: 1090px) {
-				
 				.transparency .transparency-slider {
 					all: unset;
 				}
-				
 				.transparency .row {
 					all: unset;
 				}
 				.js-transparency-main-slider {
 					overflow: hidden !important;
 				}
-			
 				.js-transparency-wrap-slider {
 					display: flex !important;
 					transition: transform 0.5s !important;
 				}
-			
 				.js-transparency-slider__item {
 					display: flex !important;
 					align-items: center !important;
@@ -54,9 +47,7 @@ const transparencySlider = () => {
 			}
 		`
   });
-
   sliderDoc.init();
-
   const carousel = new CarouselSlider({
     main: '.popup-transparency-slider',
     wrap: '.wrapper-for-popup-transparency-slider',
@@ -70,11 +61,8 @@ const transparencySlider = () => {
       item: 'js-popup-transparency-slider__item',
     },
   });
-
-
   carousel.prevSlider = function() {
     this.options.position = this.wrap.dataset.currentIndex;
-
     if (this.options.position > 0) {
       this.wrap.dataset.currentIndex = --this.options.position;
       this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
@@ -83,13 +71,9 @@ const transparencySlider = () => {
       current.textContent = this.options.position + 1;
       sliderDoc.prevSlider();
     }
-
-
   };
-
   carousel.nextSlider = function() {
     this.options.position = +this.wrap.dataset.currentIndex;
-
     if (this.options.position < this.options.maxPosition) {
       this.wrap.dataset.currentIndex = ++this.options.position;
       this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
@@ -97,12 +81,9 @@ const transparencySlider = () => {
       current.textContent = this.options.position + 1;
       if (this.options.position === this.options.maxPosition) this.next.style.visibility = 'hidden';
       sliderDoc.nextSlider();
-
     }
   };
-
   carousel.init();
   total.innerText = carousel.slides.length;
 };
-
 export default transparencySlider;

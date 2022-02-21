@@ -1,5 +1,4 @@
 import CarouselSlider from './carouselSlider';
-
 const portfolioSlider = () => {
   const desktopSlider = new CarouselSlider({
     main: '.wrapper-main-for-portfolio-desktop-slider',
@@ -21,16 +20,13 @@ const portfolioSlider = () => {
       item: 'js-portfolio-desktop_item-slider'
     },
   });
-
   desktopSlider.addStyle = function() {
     let style = document.getElementById(this.stylesId);
     const styleClasses = this.options.styleClasses;
-
     if (!style) {
       style = document.createElement('style');
       style.id = this.stylesId;
     }
-
     style.textContent = `
 		@media (min-width: 576px) {
 			.${styleClasses.main} {
@@ -54,10 +50,8 @@ const portfolioSlider = () => {
 			}
 		}
 		`;
-
     document.head.append(style);
   };
-
   desktopSlider.prevSlider = function() {
     if (this.options.position > 0) {
       --this.options.position;
@@ -72,7 +66,6 @@ const portfolioSlider = () => {
       if (this.options.position === 0) this.prev.style.visibility = 'hidden';
     }
   };
-
   desktopSlider.nextSlider = function() {
     if (this.options.position < this.options.maxPosition) {
       ++this.options.position;
@@ -87,12 +80,9 @@ const portfolioSlider = () => {
       if (this.options.position === this.options.maxPosition) this.next.style.visibility = 'hidden';
     }
   };
-
   desktopSlider.init();
-
   const current = document.querySelector('#portfolio-counter .slider-counter-content__current'),
     total = document.querySelector('#portfolio-counter .slider-counter-content__total');
-
   const mobileSlider = new CarouselSlider({
     main: '.portfolio-slider-wrap',
     wrap: '.portfolio-slider-mobile',
@@ -122,15 +112,12 @@ const portfolioSlider = () => {
 					margin: 0 auto !important;
 					flex: 0 0 120% !important;
 				}
-				
 				.slider-counter-responsive {
 					bottom: 17px;
 			  }
 			}
 		`
   });
-
-
   mobileSlider.prevSlider = function() {
     if (this.options.position > 0) {
       --this.options.position;
@@ -140,7 +127,6 @@ const portfolioSlider = () => {
       current.textContent = this.options.position + 1;
     }
   };
-
   mobileSlider.nextSlider = function() {
     if (this.options.position < this.options.maxPosition) {
       ++this.options.position;
@@ -150,11 +136,8 @@ const portfolioSlider = () => {
       current.textContent = this.options.position + 1;
     }
   };
-
   mobileSlider.options.widthSlide = 122;
-
   total.textContent = mobileSlider.slides.length;
   mobileSlider.init();
 };
-
 export default portfolioSlider;

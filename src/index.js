@@ -15,7 +15,6 @@ import functionTransparency from './modules/functionTransparency'
 import reviewsSlider from './modules/reviewsSlider'
 import sendForm from './modules/sendForm'
 import loadData from './modules/loadData'
-
 phoneList()
 headerMenu()
 scroll()

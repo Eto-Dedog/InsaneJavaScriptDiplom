@@ -4,12 +4,10 @@ const sendForm = () => {
       checkboxLabels = document.querySelectorAll('.checkbox__label'),
       popupThank = document.querySelector('.popup-thank'),
       popupConsultation = document.querySelector('.popup-consultation');
-
   const restCheckbox = () => {
       checkboxLabels.forEach(item => item.style.backgroundColor = 'transparent');
       checkboxs.forEach(item => item.checked = false);
   };
-
   const postData = (body) => {
       return fetch('./server.php', {
           method: 'POST',
@@ -19,14 +17,11 @@ const sendForm = () => {
           body: JSON.stringify(body)
       });
   };
-
   const sendData = (event, form) => {
       event.preventDefault();
-
       const formData = new FormData(form);
       let body = {};
       formData.forEach((val, key) => { body[key] = val; });
-
       postData(body)
           .then(response => {
               if (response.status !== 200) {
@@ -44,13 +39,10 @@ const sendForm = () => {
       formInputs.forEach(item => item.value = '');
       restCheckbox();
   };
-
   body.addEventListener('submit', (event) => {
       const target = event.target;
-
       if (target.closest('form')) {
           const checkboxInput = target.closest('form').querySelector('.checkbox__input');
-
           if (checkboxInput.checked === true) {
               sendData(event, target.closest('form'));
           } else {
@@ -58,23 +50,18 @@ const sendForm = () => {
           }
       }
   });
-
   body.addEventListener('click', (event) => {
       const target = event.target;
-
       if (target.closest('.popup-thank') && target.closest('.close-thank')) {
           popupThank.style.visibility = 'hidden';
           restCheckbox();
       }
-
       if (target.closest('form')) {
           const checkboxInput = target.closest('form').querySelector('.checkbox__input'),
               checkboxLabel = target.closest('form').querySelector('.checkbox__label');
-
           if (target.closest('.button') && checkboxInput.checked === false) {
               checkboxLabel.style.backgroundColor = 'red';
           }
-
           if (target.closest('.checkbox__label')) {
               if (checkboxInput.checked === false) {
                   checkboxLabel.style.backgroundColor = 'green';
@@ -85,5 +72,4 @@ const sendForm = () => {
       }
   });
 };
-
 export default sendForm;

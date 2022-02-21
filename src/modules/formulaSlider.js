@@ -1,15 +1,12 @@
 import CarouselSlider from './carouselSlider';
-
 const formulaSlider = () => {
   const formula = document.getElementById('formula'),
   formulaItemIcon = document.querySelectorAll('.formula-item__icon'),
   styleOne = document.createElement(`style`);
-
   styleOne.textContent = `.formula-item-popup::before {
       transform: rotate(180deg);
     }
   `;
-  
   formulaItemIcon.forEach( (item) => {
     item.addEventListener('mouseover', () => {
       item.children[1].style.opacity = 1;
@@ -34,8 +31,6 @@ const formulaSlider = () => {
       }
     }); 
   });
-
-
   const slider = new CarouselSlider({
     main: '.formula-slider-wrap',
     wrap: '.formula-slider',
@@ -54,9 +49,7 @@ const formulaSlider = () => {
 		}
 		`,
   });
-
   slider.slides[0].classList.toggle('active-item');
-
   slider.prevSlider = function() {
     if (this.options.position > 0) {
       this.slides[this.options.position].classList.toggle('active-item');
@@ -67,7 +60,6 @@ const formulaSlider = () => {
       this.slides[this.options.position].classList.toggle('active-item');
     }
   };
-
   slider.nextSlider = function() {
     if (this.options.position < this.options.maxPosition) {
       this.slides[this.options.position].classList.toggle('active-item');
@@ -76,11 +68,8 @@ const formulaSlider = () => {
       this.prev.style.visibility = '';
       if (this.options.position === this.options.maxPosition) this.next.style.visibility = 'hidden';
       this.slides[this.options.position].classList.toggle('active-item');
-
     }
   };
-
   slider.init();
 };
-
 export default formulaSlider;
