@@ -16,6 +16,7 @@ import reviewsSlider from './modules/reviewsSlider'
 import sendForm from './modules/sendForm'
 import loadData from './modules/loadData'
 import autorization from './modules/autorization'
+import modalAdd from './modules/modalAdd'
 
 var url = window.location.href;
 if(url.indexOf('http://insanejavascriptdiplom') != url.indexOf('http://insanejavascriptdiplom/admin')) {
@@ -37,5 +38,9 @@ reviewsSlider()
 sendForm()
 loadData()
 } else {
-autorization()
+    if (url.indexOf('http://insanejavascriptdiplom/admin') != url.indexOf('http://insanejavascriptdiplom/admin/table.html')) {
+        autorization()
+    } else {
+        modalAdd()
+    }
 }
